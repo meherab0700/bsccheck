@@ -1,100 +1,159 @@
 "use client";
 
-import thirdwebIcon from "@public/thirdweb.svg";
-import Image from "next/image";
 import { ConnectButton } from "thirdweb/react";
 import { client } from "./client";
 
 export default function Home() {
   return (
-    <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
-      <div className="py-20">
-        <Header />
+    <div style={styles.page}>
+      {/* Top Header */}
+      <div style={styles.header}>
+        <h2 style={styles.logo}>Flash USDT Checker</h2>
 
-        <div className="flex justify-center mb-20">
-          <ConnectButton
-            client={client}
-            appMetadata={{
-              name: "Example App",
-              url: "https://example.com",
-            }}
-          />
+        <div style={styles.connectBtn}>
+          <ConnectButton client={client} auth={false} />
+        </div>
+      </div>
+
+      {/* Network Row */}
+      <div style={styles.networkRow}>
+        <div style={styles.networkItem}>🟢 USDT (ERC20)</div>
+        <div style={styles.networkItem}>🟢 USDT (TRC20)</div>
+        <div style={styles.networkItem}>🟢 USDT (BEP20)</div>
+      </div>
+
+      {/* Info Alert Box */}
+      <div style={styles.alertBox}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <span style={{ fontSize: "20px" }}>✅</span>
+          <strong style={{ color: "#000" }}>What you can do with this tool</strong>
         </div>
 
-        <ThirdwebResources />
+        <hr style={styles.hr} />
+
+        <p style={styles.smallText}>
+          Connect your wallet to review token balances and smart contract
+          permissions on the selected blockchain network.
+        </p>
       </div>
-    </main>
-  );
-}
 
-function Header() {
-  return (
-    <header className="flex flex-col items-center mb-20 md:mb-20">
-      <Image
-        src={thirdwebIcon}
-        alt=""
-        className="size-[150px] md:size-[150px]"
-        style={{
-          filter: "drop-shadow(0px 0px 24px #a726a9a8)",
-        }}
-      />
+      {/* Main Center Card */}
+      <div style={styles.mainCard}>
+        <h1 style={styles.title}>
+          Review your wallet tokens Scams or Legit
+        </h1>
 
-      <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
-        thirdweb SDK
-        <span className="text-zinc-300 inline-block mx-1"> + </span>
-        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
-      </h1>
+        <p style={styles.description}>
+          After connecting, you can inspect token holdings and contract
+          approvals associated with your wallet address.
+        </p>
 
-      <p className="text-zinc-300 text-base">
-        Read the{" "}
-        <code className="bg-zinc-800 text-zinc-300 px-2 rounded py-1 text-sm mx-1">
-          README.md
-        </code>{" "}
-        file to get started.
-      </p>
-    </header>
-  );
-}
-
-function ThirdwebResources() {
-  return (
-    <div className="grid gap-4 lg:grid-cols-3 justify-center">
-      <ArticleCard
-        title="thirdweb SDK Docs"
-        href="https://portal.thirdweb.com/typescript/v5"
-        description="thirdweb TypeScript SDK documentation"
-      />
-
-      <ArticleCard
-        title="Components and Hooks"
-        href="https://portal.thirdweb.com/typescript/v5/react"
-        description="Learn about the thirdweb React components and hooks in thirdweb SDK"
-      />
-
-      <ArticleCard
-        title="thirdweb Dashboard"
-        href="https://thirdweb.com/dashboard"
-        description="Deploy, configure, and manage your smart contracts from the dashboard."
-      />
+        <div style={{ marginTop: "30px" }}>
+          <ConnectButton client={client} auth={false} />
+        </div>
+      </div>
     </div>
   );
 }
 
-function ArticleCard(props: {
-  title: string;
-  href: string;
-  description: string;
-}) {
-  return (
-    <a
-      href={props.href + "?utm_source=next-template"}
-      target="_blank"
-      className="flex flex-col border border-zinc-800 p-4 rounded-lg hover:bg-zinc-900 transition-colors hover:border-zinc-700"
-    >
-      <article>
-        <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
-        <p className="text-sm text-zinc-400">{props.description}</p>
-      </article>
-    </a>
-  );
-}
+const styles: any = {
+  page: {
+    minHeight: "100vh",
+    backgroundColor: "#ffffff",
+    fontFamily: "Inter, sans-serif",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center", // vertical center
+    alignItems: "center",     // horizontal center
+    padding: "30px 20px",
+    color: "#000",            // all text black
+  },
+
+  header: {
+    background: "#f3f3f3",
+    padding: "20px 30px",
+    borderRadius: "14px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    boxShadow: "0 4px 12px rgba(7, 7, 7, 0.05)",
+    width: "100%",
+    maxWidth: "800px",
+    color: "#000",
+  },
+
+  logo: {
+    margin: 0,
+    fontWeight: 800,      // বেশি bold
+    color: "#000000",     // pure black
+    letterSpacing: "0.5px",
+  },
+
+  connectBtn: {
+    borderRadius: "8px",
+  },
+
+  networkRow: {
+    marginTop: "20px",
+    display: "flex",
+    gap: "25px",
+    fontSize: "14px",
+    color: "#000",
+    justifyContent: "center",
+    width: "100%",
+    maxWidth: "800px",
+  },
+
+  networkItem: {
+    display: "flex",
+    alignItems: "center",
+    gap: "6px",
+  },
+
+  alertBox: {
+    marginTop: "30px",
+    background: "#f5f5f5",
+    padding: "25px 30px",
+    borderRadius: "14px",
+    boxShadow: "0 6px 15px rgba(0,0,0,0.05)",
+    maxWidth: "800px",
+    color: "#000",
+  },
+
+  hr: {
+    margin: "12px 0",
+    border: "none",
+    borderTop: "1px solid #ccc",
+  },
+
+  smallText: {
+    fontSize: "14px",
+    color: "#000000",
+    lineHeight: "1.6",
+  },
+
+  mainCard: {
+    marginTop: "50px",
+    background: "#f5f5f5",
+    padding: "50px",
+    borderRadius: "18px",
+    maxWidth: "800px",
+    boxShadow: "0 15px 30px rgba(5, 1, 1, 0.08)",
+    color: "#000",
+    textAlign: "center",
+  },
+
+  title: {
+    margin: 0,
+    fontSize: "28px",
+    fontWeight: 700,
+    color: "#000",
+  },
+
+  description: {
+    marginTop: "15px",
+    fontSize: "15px",
+    color: "#000000",
+    lineHeight: "1.7",
+  },
+};
