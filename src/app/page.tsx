@@ -1,5 +1,5 @@
 "use client";
-import { checkBscUsdtBalance } from '../lib/checkBscBalance';
+import { checkBscUsdtBalance } from './lib/checkBscBalance';
 
 import { ConnectButton } from "thirdweb/react";
 import { client } from "./client";
