@@ -12,15 +12,14 @@ export default function Home() {
         <h2 style={styles.logo}>Flash USDT Checker</h2>
 
         <div style={styles.connectBtn}>
-         <ConnectButton client={client} auth={{}} />
+         <ConnectButton client={client} />
           
         </div>
       </div>
 
       {/* Network Row */}
       <div style={styles.networkRow}>
-        <div style={styles.networkItem}>🟢 USDT (ERC20)</div>
-        <div style={styles.networkItem}>🟢 USDT (TRC20)</div>
+        
         <div style={styles.networkItem}>🟢 USDT (BEP20)</div>
       </div>
 
@@ -50,7 +49,7 @@ export default function Home() {
         </p>
 
         <div style={{ marginTop: "35px" }}>
-          <ConnectButton client={client} auth={{}} />
+          <ConnectButton client={client} />
         </div>
       </div>
     </div>
