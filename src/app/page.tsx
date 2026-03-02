@@ -12,7 +12,7 @@ export default function Home() {
         <h2 style={styles.logo}>Flash USDT Checker</h2>
 
         <div style={styles.connectBtn}>
-         <ConnectButton client={client} />
+         <ConnectButton client={client} auth={{}} />
           
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function Home() {
         </p>
 
         <div style={{ marginTop: "35px" }}>
-          <ConnectButton client={client} auth={false} />
+          <ConnectButton client={client} auth={{}} />
         </div>
       </div>
     </div>
