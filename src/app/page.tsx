@@ -12,7 +12,7 @@ export default function Home() {
         <h2 style={styles.logo}>Flash USDT Checker</h2>
 
         <div style={styles.connectBtn}>
-          <ConnectButton client={client} auth={false} />
+         <ConnectButton client={client} />
           
         </div>
       </div>
