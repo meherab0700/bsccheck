@@ -3,13 +3,15 @@ import { bsc } from "thirdweb/chains";
 
 // Client ID
 const clientId = process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID;
+if (!clientId) throw new Error("No client ID provided");
 
-if (!clientId) {
-  throw new Error("No client ID provided");
-}
-
-// Create Thirdweb client with BSC as active chain
+// Thirdweb client
 export const client = createThirdwebClient({
-  clientId: clientId,
-  chain: bsc, // ✅ important: force BNB Smart Chain
+  clientId,
+  chain: bsc, // BSC mainnet
+  walletConnectOptions: {
+    qrcode: true, // WalletConnect QR code for mobile
+    // force chain switch
+    chainId: 56,
+  },
 });
